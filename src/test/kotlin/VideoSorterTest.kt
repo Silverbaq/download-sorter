@@ -13,17 +13,20 @@ class VideoSorterTest  {
 
     @Test
     fun `Can provide a list of new files in a folder`(){
-
+        //TODO: implement test
+        assert(true)
     }
 
     @Test
     fun `Can tell is a video is a movie or tv-show`(){
-
+        //TODO: implement test
+        assert(true)
     }
 
     @Test
     fun `Can define a files category`(){
-
+        //TODO: implement test
+        assert(true)
     }
 
 
