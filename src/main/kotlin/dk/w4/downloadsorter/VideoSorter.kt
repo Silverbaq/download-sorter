@@ -9,7 +9,7 @@ class VideoSorter(
     private val dbController: DBController,
     private val fileController: FileController
 ) {
-    val inputPath: String = "inputPath"
+    val inputPath: String = "./inputPath"
     val moviesOutput: String = "moviesOutput"
     val showOutput: String = "showOutput"
 
