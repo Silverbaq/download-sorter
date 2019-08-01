@@ -4,15 +4,15 @@ FROM openjdk:${VERSION}-jdk as BUILD
 
 COPY . /src
 WORKDIR /src
-RUN ./gradlew --no-daemon shadowJar
+RUN ./gradlew build --no-daemon shadowJar
 
 FROM openjdk:${VERSION}-jre
 
-COPY --from=BUILD /src/build/libs/download-sorter-0.1 /bin/runner/run.jar
-WORKDIR /bin/runner
+COPY --from=BUILD /src/build/libs/download-sorter-0.1-all.jar download-sorter.jar
+WORKDIR /
 
 RUN mkdir -p /downloads
 RUN mkdir -p /movies
 RUN mkdir -p /series
 
-CMD ["java","-jar","run.jar"]
+CMD ["java","-jar","download-sorter.jar"]
