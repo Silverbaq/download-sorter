@@ -4,11 +4,11 @@ FROM openjdk:${VERSION}-jdk as BUILD
 
 COPY . /src
 WORKDIR /src
-RUN ./gradlew build
+RUN ./gradlew --no-daemon shadowJar
 
 FROM openjdk:${VERSION}-jre
 
-COPY --from=BUILD /src/build/libs/download-sorter-0.1.jar /bin/runner/run.jar
+COPY --from=BUILD /src/build/libs/download-sorter-0.1 /bin/runner/run.jar
 WORKDIR /bin/runner
 
 RUN mkdir -p /downloads
