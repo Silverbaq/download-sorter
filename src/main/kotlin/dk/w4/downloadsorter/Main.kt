@@ -1,4 +1,5 @@
-import dk.w4.downloadsorter.VideoSorter
+package dk.w4.downloadsorter
+
 import dk.w4.downloadsorter.controllers.DBController
 import dk.w4.downloadsorter.controllers.FileController
 
