@@ -9,8 +9,8 @@ class VideoSorter(
     private val dbController: DBController,
     private val fileController: FileController,
     private val inputPath: String = "./downloads",
-    private val moviesOutput: String = "./movies",
-    private val showOutput: String = "./series"
+    private val moviesOutput: String = "./movies/",
+    private val showOutput: String = "./series/"
 ) {
 
     fun lookThroughFiles(): List<File> {
@@ -31,9 +31,9 @@ class VideoSorter(
                     val name2 = file.name
                     dbController.insertFile(file)
                     if (isVideoATVShow(name2)) {
-                        fileController.copyFile(file, showOutput)
+                        fileController.copyFile(file, showOutput + file.name)
                     } else {
-                        fileController.copyFile(file, moviesOutput)
+                        fileController.copyFile(file, moviesOutput + file.name)
                     }
                 }
                 Categorie.MUSIC -> println("[-] " + file.name + " is skipped! (For now)")
