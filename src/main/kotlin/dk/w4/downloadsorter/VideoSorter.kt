@@ -7,12 +7,11 @@ import java.io.File
 
 class VideoSorter(
     private val dbController: DBController,
-    private val fileController: FileController
+    private val fileController: FileController,
+    private val inputPath: String = "./downloads",
+    private val moviesOutput: String = "./movies",
+    private val showOutput: String = "./series"
 ) {
-    val inputPath: String = "./inputPath"
-    val moviesOutput: String = "moviesOutput"
-    val showOutput: String = "showOutput"
-
 
     fun lookThroughFiles(): List<File> {
         val fileList = mutableListOf<File>()
